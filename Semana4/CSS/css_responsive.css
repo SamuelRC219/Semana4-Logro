@@ -1,0 +1,282 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    max-height: 100%;
+}
+body{
+    font-family: Tahoma;
+    font-size: 18px;
+    background-image: url(../Img/incap\ se\ invencible2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+/* seccion <header> cabecera */
+#header{
+    background-color: lightblue;
+    border:2px solid black;
+    border-radius: 20px 20px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* alinear horizontal*/
+    align-items: center; /* alinear horizontal*/
+    grid-area: header; /* nombre del contenedor CSS GRID*/
+}
+ul{
+    padding: 0 0;
+    margin: 0 1px;
+}
+li{
+    list-style: none;
+    margin: 0 5px;
+    font: bold 12px Verdana;
+}
+a{
+    color: white;
+    text-decoration: none; /* quitar subrayado*/
+}
+/* seccion estilos <nav> barra menus */
+#menu{
+    grid-area: nav; /* nombre contenedor para css grid*/
+    background-color: blue;
+    border: 2px solid yellowgreen;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin: 5px;
+}
+/* seccion estilos barra submenu */
+.menuB>li{
+    position: relative;
+    display: inline-block;
+}
+.menuB>li>a{
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+}
+.menuB li a:hover{
+    color: purple;
+    transition: all, 0.5s;
+} /* evento css al pasar el mouse*/
+.submenu{
+    position: absolute;
+    background: blue;
+    width: 120%;
+    display: none;
+}
+.submenu li a{
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+}
+.menuB li:hover .submenu{
+    display: block;
+    z-index: 100;
+}
+/* seccion de estilos buscarbox */
+.buscarbox input{
+    height: 25px;
+    width: 0px;
+    padding: 0px 0px;
+    border-radius: 40px;
+    border: 0px;
+    padding-right: 50px;
+    transition: ease 0.5s ease;
+}
+.buscarbox input:hover{
+    width: 150px;
+    padding-left: 10px;
+    outline: none;
+}
+/* secion de contenido  <section> y <article> */
+#main{
+    grid-area: main;
+    border: 2px solid green;
+    border-radius: 22px;
+    max-width: 100%;  /* adaptable a cualquier dispositivo*/
+    height: auto;  /*adaptable a cualquier dispositivo*/
+    background-color:rgba(255, 255, 255, 0.6); /*efecto glass*/
+    backdrop-filter: blur(5px); /*efecto glass*/
+}
+figure, figcaption{
+    display: inline;
+    margin: 45px;
+    padding: 5px 5px;
+}
+/* seccion estilos a las etiquetas <article> iconos de escuelas incap */
+.programa{
+    display: inline-block;
+    margin: 5px 5px;
+    padding: 5px 5px;
+    width: 45%;
+    height: 200px;
+    position: relative;
+    border: 1px solid green;
+    border-radius: 20px 20px;
+}
+section article{
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    margin: 20px;
+}
+/* seccion estilos <aside> barra lateral */
+#sidebar{
+    grid-area: sidebar; /* nombre contenedor para css grid*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 22px;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+}
+iframe{
+    max-width: 100%;
+    height: auto;
+}
+/* seccion pie de pagina */
+#footer{
+    grid-area: footer;
+    padding-top: 20px;
+    border: 2px solid green;
+    border-radius: 22px;
+    clear: both;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+}
+#redes a{
+    padding: 5px;
+    margin: 0px;
+}
+#redes a i:hover{
+    transform: scaleX(1.5);
+}
+/* estilos iconos fontawesome */
+i[class^="fa"]{
+    color: gray;
+    font-size: 18px;
+}
+/* iconos fontawesome BAR SOCIAL */
+i[class^="fab"]{
+    color: grey;
+    font-size: 30px;
+    border: 1px solid transparent;
+    margin: 0px;
+}
+/* SECCION CSS GRID PARA GRID CONTAINER */
+#grid-container > * {
+    text-align: center;
+    box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.75); 
+    }
+/* SECCION DE CSS PARA VISTA PC: 3 COLUMNAS */
+#grid-container{
+    display: grid;
+    grid-gap:10px;
+    grid-template:
+    "header header header" 150px
+    "nav nav nav" 50px
+    "main main sidebar" 300px
+    "main main sidebar" 300px
+    "main main sidebar" 250px
+    "footer footer footer" 150px /
+    1400px 150px 300px;
+    }
+/* SECCION CSS VISTA TABLETS: 2 COLUMNAS */
+@media (max-width:1024px){
+#grid-container{
+        grid-template:
+        "header header" 170px
+        "nav main" 800px
+        "nav main" 700px
+        "sidebar sidebar" 650px
+        "footer footer" 100px /
+        250px 450px;
+        font-size: 75%; /*Cambia el tamaño de letra*/
+    }
+    #menu{
+        background-color: blue;
+        border-radius: 20px;
+        display: block;
+        padding: 45px;
+        margin: 40px;
+        height: auto;
+        text-align: center;
+    }
+    #main{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 100%;
+    }
+    .programa{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 100%;
+        height: auto;
+        border: 1px solid black;
+}
+iframe{
+    max-width: 100%;
+    height: auto;
+}
+.buscarbox{
+    display: block;
+    padding: 5px;
+}
+}
+/* SECCION CSS GRID VISTA CELULAR 1 COLUMNA */
+@media (max-width:640px){
+    #grid-container{
+    grid-template:
+        "header" 150px
+        "nav" 50px
+        "main" 1120px
+        "sidebar" 800px
+        "footer" 100px /
+        500px;
+        font-size: 60%;
+    }
+    /* NOTA:  EL CONTENEDOR NAV SERA OCULTADO Y REEMPLAZADO POR ICONO HAMBURQUESA */
+    #menu{
+        display: none;
+    }
+    #main{ 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 100%;
+        height: auto;
+    }
+    .programa{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 100%;
+        height: auto;
+        border: 1px solid black;
+    }
+    iframe{
+        max-width: 100%;
+        height: auto;
+    }
+    .buscarbox{
+    display: none;
+}
+}
